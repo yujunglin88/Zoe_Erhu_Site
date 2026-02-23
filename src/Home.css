@@ -3,19 +3,36 @@
 }
 
 .Home-logo {
-  height: 40vmin;
+  height: 80vmin;
   pointer-events: none;
+}
+
+.Home-portrait {
+  height: 60vmin;
+  pointer-events: none;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .Home-logo {
-    /* place in top middle */
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 30%;
+    transform: translateX(50%);
+  }
+  .Home-portrait {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
+
+.Home-heading {
+  /* move it down so it doesn't overlap with the logo */
+  margin-top: 500px;
+}
+
 
 .Home-header {
   background-color: #ffe0e0;
@@ -26,6 +43,13 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
+}
+
+.Home-content {
+  padding: 20px;
+  font-size: calc(10px + 1vmin);
+  color: #333;
+  white-space: pre-line; /* Preserve newlines in the text */
 }
 
 .Home-link {
