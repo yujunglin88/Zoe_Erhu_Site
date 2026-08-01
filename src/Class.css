@@ -1,0 +1,67 @@
+.Class {
+  text-align: center;
+}
+
+.Class-logo {
+  height: 80vmin;
+  pointer-events: none;
+}
+
+.Class-portrait {
+  height: 60vmin;
+  pointer-events: none;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Class-logo {
+    position: absolute;
+    top: 0;
+    right: 30%;
+    transform: translateX(50%);
+  }
+  .Class-portrait {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.Class-heading {
+  /* move it down so it doesn't overlap with the logo */
+  margin-top: 600px;
+}
+
+
+.Class-header {
+  background-color: #ffe0e0;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.Class-content {
+  background-color: #ffe0e0;
+  padding: 20px;
+  font-size: calc(10px + 1vmin);
+  color: #333;
+  white-space: pre-line; /* Preserve newlines in the text */
+}
+
+.Class-link {
+  color: #61dafb;
+}
+
+@keyframes Home-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

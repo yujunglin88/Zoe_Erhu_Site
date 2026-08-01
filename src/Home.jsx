@@ -1,10 +1,13 @@
 import logo from './res/logo.png';
 import portrait from './res/portrait.jpg';
 import './Home.css';
+import Navbar from './componenets/Navbar';
 
 function Home() {
   return (
     <>
+      <Navbar />
+
       <div className="Home">
       <header className="Home-header">
         <img src={logo} className="Home-logo" alt="logo" />
@@ -13,6 +16,8 @@ function Home() {
         
       </header>
       </div>
+
+
       <div className="Home-content">
         <text>
           At Zoe Li's Erhu Studio, we are dedicated to providing high-quality erhu lessons for students of all ages and skill levels.{"\n"}
