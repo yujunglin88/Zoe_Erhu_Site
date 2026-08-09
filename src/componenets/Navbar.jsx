@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className='bs-slate-800 shadow-lg flex items-center justify-around py-3 px-32 top-0 left -0 w-full'>
-      <Link to="/Home" className='text-white hover:text-gray-300'>
+    <nav className="navbar">
+      <Link to="/" className="navbar-link">
         Home
       </Link>
-      <Link to="/Class" className='text-white hover:text-gray-300'>
+      <Link to="/Class" className="navbar-link">
         Classes
       </Link>
-      <Link to="/About" className='text-white hover:text-gray-300'>
+      <Link to="/About" className="navbar-link">
         About
       </Link>
     </nav>

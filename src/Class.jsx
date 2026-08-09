@@ -1,10 +1,12 @@
 import logo from './res/logo.png';
 import portrait from './res/portrait.jpg';
 import './Class.css';
+import NavBar from './componenets/Navbar';
 
 function Class() {
   return (
     <>
+      <NavBar/>
       <div className="Class">
         <header className="Class-header">
           <img src={logo} className="Class-logo" alt="logo" />
