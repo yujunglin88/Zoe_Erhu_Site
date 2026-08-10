@@ -16,7 +16,7 @@ const Navbar = () => {
         Home
       </Link>
       <Link to="/Class" className="navbar-link">
-        Classes
+        Classes / Grade Exams
       </Link>
       <Link to="/About" className="navbar-link">
         About
