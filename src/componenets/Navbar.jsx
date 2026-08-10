@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import icon from '../res/icon.png';
+import icon from '../assests/icons/icon.png';
 import './Navbar.css';
 
 

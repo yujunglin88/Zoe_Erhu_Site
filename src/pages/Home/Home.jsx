@@ -1,14 +1,10 @@
-import logo from '../res/logo.png';
-import portrait from '../res/portrait.jpg';
+import logo from '../../assests/images/logo.png';
+import portrait from '../../assests/images/portrait.jpg';
 import './Home.css';
-import Navbar from '../componenets/Navbar';
 
 function Home() {
   return (
     <>
-      <div>
-      <Navbar />
-      </div>
       <div className="Home">
       <header className="Home-header">
         <img src={logo} className="Home-logo" alt="logo" />

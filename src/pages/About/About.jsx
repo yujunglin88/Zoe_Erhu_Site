@@ -1,4 +1,4 @@
-import Navbar from '../componenets/Navbar';
+
 
 
 function About() {

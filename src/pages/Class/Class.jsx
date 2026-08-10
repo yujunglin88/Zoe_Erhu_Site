@@ -1,10 +1,8 @@
 import './Class.css';
-import NavBar from '../componenets/Navbar';
 
 function Class() {
   return (
     <>
-      <NavBar/>
       <div className="Class">
         <header className="Class-header">
           <h1 className="Class-heading">Classes</h1>
