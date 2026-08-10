@@ -1,11 +1,10 @@
-import Navbar from './componenets/Navbar';
+import Navbar from '../componenets/Navbar';
 
 
 function About() {
     return (
         <div>
-            <Navbar />
-            <h1>About Us</h1>
+            <h1>About Zoe</h1>
             <p>Welcome to our about page!</p>
         </div>
     );

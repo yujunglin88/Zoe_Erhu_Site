@@ -1,7 +1,7 @@
-import logo from './res/logo.png';
-import portrait from './res/portrait.jpg';
+import logo from '../res/logo.png';
+import portrait from '../res/portrait.jpg';
 import './Home.css';
-import Navbar from './componenets/Navbar';
+import Navbar from '../componenets/Navbar';
 
 function Home() {
   return (

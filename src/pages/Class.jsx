@@ -1,5 +1,5 @@
 import './Class.css';
-import NavBar from './componenets/Navbar';
+import NavBar from '../componenets/Navbar';
 
 function Class() {
   return (
