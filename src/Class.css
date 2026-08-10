@@ -16,13 +16,13 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .Class-logo {
-    position: absolute;
+    position: sticky;
     top: 0;
     right: 30%;
     transform: translateX(50%);
   }
   .Class-portrait {
-    position: absolute;
+    position: sticky;
     top: 0;
     left: 0;
   }
