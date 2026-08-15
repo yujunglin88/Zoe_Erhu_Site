@@ -1,67 +1,405 @@
-.Class {
-  text-align: center;
+.classes-page {
+  --cream: #f5f0e8;
+  --cream-light: #faf8f3;
+  --dark: #20201d;
+  --dark-soft: #34332e;
+  --gold: #b08a4a;
+  --gold-light: #d2b477;
+  --border: rgba(32, 32, 29, 0.15);
+
+  background: var(--cream-light);
+  color: var(--dark);
 }
 
-.Class-logo {
-  height: 80vmin;
+/* =========================
+   HERO
+========================= */
+
+.classes-hero {
+  position: relative;
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--cream);
+  padding: 100px 8%;
+}
+
+.classes-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.classes-hero h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.classes-hero h1 span {
+  display: block;
+  color: var(--gold);
+  font-style: italic;
+}
+
+.classes-hero p {
+  max-width: 580px;
+  margin: 38px 0 0;
+  color: #5d5b54;
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.classes-hero__decoration {
+  position: absolute;
+  inset: 0;
   pointer-events: none;
 }
 
-.Class-portrait {
-  height: 60vmin;
-  pointer-events: none;
-  margin-top: 20px;
-  margin-left: 20px;
+.music-note {
+  position: absolute;
+  color: rgba(176, 138, 74, 0.18);
+  font-family: Georgia, serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .Class-logo {
-    position: sticky;
-    top: 0;
-    right: 30%;
-    transform: translateX(50%);
-  }
-  .Class-portrait {
-    position: sticky;
-    top: 0;
-    left: 0;
-  }
+.music-note--one {
+  top: 15%;
+  right: 14%;
+  font-size: 9rem;
+  transform: rotate(15deg);
 }
 
-.Class-heading {
-  /* move it down so it doesn't overlap with the logo */
-  margin-top: 600px;
+.music-note--two {
+  right: 30%;
+  bottom: 12%;
+  font-size: 5rem;
+  transform: rotate(-15deg);
+}
+
+.music-note--three {
+  top: 45%;
+  right: 5%;
+  font-size: 4rem;
 }
 
 
-.Class-header {
-  background-color: #ffe0e0;
-  min-height: 80vh;
+/* =========================
+   CLASS LIST
+========================= */
+
+.classes-list {
+  padding: 120px 8%;
+  background: var(--cream-light);
+}
+
+.section-heading {
+  max-width: 650px;
+  margin-bottom: 60px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.class-card {
+  min-height: 460px;
+  padding: 38px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--border);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.class-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(32, 32, 29, 0.08);
+}
+
+.class-card__top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 70px;
+}
+
+.class-card__number {
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.class-card__line {
+  width: 50px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.class-card h3 {
+  margin: 0 0 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.1rem;
+  font-weight: 400;
+}
+
+.class-card__description {
+  margin: 0 0 32px;
+  color: #6b6961;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.class-card__details {
+  margin: auto 0 0;
+  padding: 25px 0 0;
+  list-style: none;
+  border-top: 1px solid var(--border);
+}
+
+.class-card__details li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 13px;
+  color: var(--dark-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.detail-dot {
+  width: 5px;
+  height: 5px;
+  flex: 0 0 5px;
+  margin-top: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+
+/* =========================
+   EXAM SECTION
+========================= */
+
+.exam-section {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  align-items: center;
+  gap: 100px;
+  padding: 120px 8%;
+  background: var(--dark);
+  color: #fff;
+}
+
+.exam-section__content {
+  max-width: 760px;
+}
+
+.exam-section .eyebrow {
+  color: var(--gold-light);
+}
+
+.exam-section h2 {
+  margin: 0 0 35px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.exam-section h2 span {
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.exam-section p {
+  max-width: 680px;
+  margin: 0 0 18px;
+  color: #c7c5bd;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.exam-badge {
+  width: 300px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: black;
+  border: 1px solid rgba(210, 180, 119, 0.55);
+  border-radius: 50%;
+  text-align: center;
 }
 
-.Class-content {
-  background-color: #ffe0e0;
-  padding: 20px;
-  font-size: calc(10px + 1vmin);
-  color: #333;
-  white-space: pre-line; /* Preserve newlines in the text */
+.exam-badge strong {
+  color: var(--gold-light);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 5rem;
+  font-weight: 400;
+  line-height: 1;
 }
 
-.Class-link {
-  color: #61dafb;
+.exam-badge span {
+  margin-top: 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
 }
 
-@keyframes Home-logo-spin {
-  from {
-    transform: rotate(0deg);
+.exam-badge small {
+  margin-top: 8px;
+  color: #99978f;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.classes-cta {
+  padding: 130px 8%;
+  text-align: center;
+  background: var(--cream);
+}
+
+.classes-cta h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.classes-cta p {
+  margin: 25px auto 35px;
+  color: #69675f;
+  font-size: 1rem;
+}
+
+.classes-cta__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 35px;
+  padding: 16px 25px;
+  color: #fff;
+  background: var(--dark);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  transition:
+    background 0.3s ease,
+    gap 0.3s ease;
+}
+
+.classes-cta__button:hover {
+  gap: 45px;
+  background: var(--gold);
+}
+
+.classes-cta__button span {
+  font-size: 1.1rem;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .class-grid {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
+
+  .class-card {
+    min-height: auto;
+  }
+
+  .class-card__top {
+    margin-bottom: 45px;
+  }
+
+  .exam-section {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .exam-badge {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .classes-hero {
+    min-height: 70vh;
+    padding: 80px 7%;
+  }
+
+  .classes-hero h1 {
+    font-size: 4rem;
+  }
+
+  .classes-hero p {
+    font-size: 0.95rem;
+  }
+
+  .classes-list,
+  .exam-section,
+  .classes-cta {
+    padding: 80px 7%;
+  }
+
+  .class-card {
+    padding: 28px;
+  }
+
+  .exam-section h2 {
+    font-size: 3.2rem;
+  }
+
+  .exam-badge {
+    width: 210px;
+    height: 210px;
+  }
+
+  .exam-badge strong {
+    font-size: 4rem;
+  }
+
+  .music-note--one {
+    right: -5%;
+    font-size: 7rem;
   }
 }

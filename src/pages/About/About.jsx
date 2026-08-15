@@ -18,7 +18,7 @@ const achievements = [
   {
     year: "2017",
     title: "World Art Festival",
-    text: "Received the Gold Award at the World Art Festival and met former New Zealand Prime Minister John Key.",
+    text: "Received the Gold Award at the World Art Festival and met former New Zealand Prime Minister Sir John Key.",
   },
   {
     year: "2019",
@@ -27,8 +27,13 @@ const achievements = [
   },
   {
     year: "2021",
-    title: "International Music Competitions",
-    text: "Awarded first place in both the IMA International Music Competition and the QMC Music Competition.",
+    title: "IMA International Music Competitions",
+    text: "Awarded first place in the IMA International Music Competition.",
+  },
+  {
+    year: "2021",
+    title: "QMC Music Competition",
+    text: "Awarded first place in the QMC Music Competition.",
   },
   {
     year: "2022",
