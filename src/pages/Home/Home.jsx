@@ -1,39 +1,278 @@
-import logo from '../../assests/images/logo.png';
-import portrait from '../../assests/images/portrait.jpg';
-import './Home.css';
+import React from "react";
+import "./Home.css";
+
+import zoeHero from "../../assests/images/logo.png";
+import zoeProfile from "../../assests/images/portrait.jpg";
 
 function Home() {
   return (
-    <>
-      <div className="Home">
-      <header className="Home-header">
-        <img src={logo} className="Home-logo" alt="logo" />
-        <img src={portrait} className="Home-portrait" alt="portrait" />
-        <h1 className="Home-heading">Welcome to Zoe Li's Erhu Studio</h1>
-        
-      </header>
-      </div>
+    <main className="home-page">
+
+      {/* Hero */}
+      <section className="home-hero">
+        <div className="home-hero__image">
+          <img src={zoeHero} alt="Zoe Li Erhu Studio" />
+        </div>
+
+        <div className="home-hero__overlay"></div>
+
+        <div className="home-hero__content">
+          <span className="home-eyebrow">
+            ZOE LI ERHU STUDIO
+          </span>
+
+          <h1>
+            Discover the
+            <br />
+            <span>Voice of the Erhu.</span>
+          </h1>
+
+          <p>
+            Traditional Chinese music, performance and inspiring
+            music education in New Zealand.
+          </p>
+
+          <div className="home-hero__buttons">
+            <a href="/classes" className="home-button home-button--light">
+              Explore Classes
+              <span>→</span>
+            </a>
+
+            <a href="/about" className="home-button home-button--outline">
+              Meet Zoe
+            </a>
+          </div>
+        </div>
+
+        <div className="home-hero__scroll">
+          <span>SCROLL TO EXPLORE</span>
+          <i></i>
+        </div>
+      </section>
 
 
-      <div className="Home-content">
-        <text>
-          At Zoe Li's Erhu Studio, we are dedicated to providing high-quality erhu lessons for students of all ages and skill levels.{"\n"}
-          Our experienced instructors are passionate about sharing their love for the erhu and helping students develop their musical talents.{"\n"}
-          Whether you are a beginner looking to learn the basics or an advanced player seeking to refine your skills, we have a program that will suit your needs.{"\n"}
-          Join us at Zoe Li's Erhu Studio and embark on a musical journey that will enrich your life and bring joy through the beautiful sounds of the erhu.{"\n"}
-        </text>
-        {/* <h1 className="Home-subheading">Bio</h1> */}
+      {/* Introduction */}
+      <section className="home-intro">
+        <div className="home-container">
+
+          <div className="home-intro__heading">
+            <span className="home-eyebrow home-eyebrow--dark">
+              MUSIC • EDUCATION • PERFORMANCE
+            </span>
+
+            <h2>
+              A passion for music,
+              <br />
+              <em>shared through the erhu.</em>
+            </h2>
+          </div>
+
+          <div className="home-intro__content">
+            <p className="home-intro__lead">
+              Zoe Li is a Chinese erhu performer and teacher based
+              in Auckland, New Zealand.
+            </p>
+
+            <p>
+              From her first lessons at six years old to performing
+              on international stages, Zoe has built a lifelong
+              connection with the erhu. Today, she shares that
+              experience with students of all ages and abilities.
+            </p>
+
+            <a href="/about" className="home-text-link">
+              Discover Zoe's story
+              <span>→</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* Highlights */}
+      <section className="home-highlights">
+        <div className="home-container">
+
+          <div className="home-highlight">
+            <strong>9+</strong>
+            <span>Years Teaching</span>
+          </div>
+
+          <div className="home-highlight">
+            <strong>15+</strong>
+            <span>Years Performing</span>
+          </div>
+
+          <div className="home-highlight">
+            <strong>100%</strong>
+            <span>Grade Exam Pass Rate*</span>
+          </div>
+
+          <div className="home-highlight">
+            <strong>6+</strong>
+            <span>Major Awards</span>
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* Classes */}
+      <section className="home-classes">
+        <div className="home-container">
+
+          <div className="home-section-heading">
+            <div>
+              <span className="home-eyebrow home-eyebrow--dark">
+                LEARN WITH ZOE
+              </span>
+
+              <h2>
+                Your musical journey
+                <br />
+                <em>starts here.</em>
+              </h2>
+            </div>
+
+            <p>
+              Whether you're completely new to the erhu or working
+              towards your next grade, lessons are designed to be
+              enjoyable, encouraging and personalised.
+            </p>
+          </div>
+
+          <div className="home-class-grid">
+
+            <article>
+              <span>01</span>
+              <h3>Private Lessons</h3>
+              <p>
+                One-on-one lessons for beginners through to advanced
+                students.
+              </p>
+              <strong>$45 / 30 mins</strong>
+            </article>
+
+            <article>
+              <span>02</span>
+              <h3>Group Lessons</h3>
+              <p>
+                Learn music together in a supportive and enjoyable
+                group environment.
+              </p>
+              <strong>Contact Zoe</strong>
+            </article>
+
+            <article>
+              <span>03</span>
+              <h3>Grade Exams</h3>
+              <p>
+                Grade 1–10 preparation with examinations hosted
+                twice a year.
+              </p>
+              <strong>100% Pass Rate*</strong>
+            </article>
+
+          </div>
+
+          <div className="home-classes__action">
+            <a href="/classes" className="home-dark-button">
+              View All Classes
+              <span>→</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* Zoe Feature */}
+      <section className="home-zoe">
+        <div className="home-zoe__image">
+          <img
+            src={zoeProfile}
+            alt="Zoe Li playing the erhu"
+          />
+        </div>
+
+        <div className="home-zoe__content">
+          <span className="home-eyebrow">
+            THE ARTIST
+          </span>
+
+          <h2>
+            From Beijing
+            <br />
+            <em>to New Zealand.</em>
+          </h2>
+
+          <p>
+            Zoe's musical journey has taken her from competitions
+            and international performances to orchestral stages and
+            music education.
+          </p>
+
+          <p>
+            She has performed at the Beijing Olympic Games, received
+            awards in international competitions and performed as an
+            erhu soloist with Wellington City Orchestra.
+          </p>
+
+          <a href="/about" className="home-light-link">
+            Learn more about Zoe
+            <span>→</span>
+          </a>
+        </div>
+      </section>
+
+
+      {/* Quote */}
+      <section className="home-quote">
+        <div className="home-quote__inner">
+
+          <span className="home-quote__mark">“</span>
+
+          <blockquote>
+            Music education can help spark a child's imagination
+            or ignite a lifetime of passion.
+          </blockquote>
+
+          <cite>— Zoe Li</cite>
+
+        </div>
+      </section>
+
+
+      {/* CTA */}
+      <section className="home-cta">
+        <span className="home-eyebrow home-eyebrow--dark">
+          BEGIN YOUR MUSICAL JOURNEY
+        </span>
+
+        <h2>
+          Let the music
+          <br />
+          <em>begin.</em>
+        </h2>
+
         <p>
-          Zoe Li is a Chinese violin—(erhu, which instrument has only two strings) player and teacher in Wellington. She has finished her Bachelor of Music at Wintec, Hamilton in 2019 and Master of  Music at Victoria University,Wellington, in 2021. Within her classical career, Zoe has worked with lots of quartet, ensemble and Orchestra all over the world, including Beijing string ensemble, NZ ECPF quartet, Singapore folk orchestra and so on. In additional, with her 6 years teaching experience, She is also love to teaching erhu from age 5 to adult.
+          Discover the joy of playing the erhu with Zoe.
         </p>
-        <p>
-          Zoe has started to learn erhu when she was 6 years old. At the age of 15 Zoe began taking private lessons from a famous erhu player in China, named Sun Huang and during the same year gained her Grade 10 exam for C.M.C.A (Chinese Music Cultural Arts). In 2005 she competed in Beijing’s Strings Music competition and was awarded the silver award for second place. In 2008, she was invited to play the erhu in the “Bird Nest” performance during the closing ceremony of the Beijing Olympic Games. In 2017, she met former prime minister of NZ-John Key and received the gold award in the World Art Festival. In 2019, she received “ Rising Star” at Final Round of Melbourne International Shaoqin Erhu Competition. In 2o21, she got first place in IMA international music competition and QMC music competition.  In 2022, she played with Wellington City Orchestral as a soloist. In 2023, her students got first price in Kapi-Mana Music Festival. Alongside playing traditional Chinese folk music, Zoe has found a love for blues and jazz. She has performed in Electronica Musical “CHOLE AND THE CHOSTS OF ELECTRIC SOULDS” with the great music doctor Jeremy Mayall.
-        </p>
-        <p>
-          “Music education can help spark a child’s imagination or ignite a lifetime of passion. When you provide a child with new worlds to explore and challenges to tackle, the possibilities are endless. Music education should not be a privilege for a lucky few, it should be a part of every child’s world of possiblity.” Zoe love to stimulate student’s creativity and imagination through the erhu !
-      </p>
-      </div>
-    </>
+
+        <div className="home-cta__buttons">
+          <a href="/classes" className="home-dark-button">
+            Explore Classes
+            <span>→</span>
+          </a>
+
+          <a href="/contact" className="home-outline-button">
+            Contact Zoe
+          </a>
+        </div>
+      </section>
+
+    </main>
   );
 }
 
