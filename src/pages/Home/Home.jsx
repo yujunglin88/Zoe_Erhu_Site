@@ -33,7 +33,7 @@ function Home() {
           </p>
 
           <div className="home-hero__buttons">
-            <a href="/classes" className="home-button home-button--light">
+            <a href="/class" className="home-button home-button--light">
               Explore Classes
               <span>→</span>
             </a>
@@ -177,7 +177,7 @@ function Home() {
           </div>
 
           <div className="home-classes__action">
-            <a href="/classes" className="home-dark-button">
+            <a href="/class" className="home-dark-button">
               View All Classes
               <span>→</span>
             </a>
@@ -261,7 +261,7 @@ function Home() {
         </p>
 
         <div className="home-cta__buttons">
-          <a href="/classes" className="home-dark-button">
+          <a href="/class" className="home-dark-button">
             Explore Classes
             <span>→</span>
           </a>
