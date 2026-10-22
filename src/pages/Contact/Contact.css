@@ -138,7 +138,7 @@
   border: 1px solid rgba(210, 180, 119, 0.5);
   border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--contact-gold);
 }
 
 .contact-hero__logo img {
@@ -200,12 +200,238 @@
    FORM
 ================================= */
 
+/* Form on the left, other contact methods on the right */
+
+.contact-layout {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) 340px;
+
+  gap: 100px;
+
+  align-items: start;
+}
+
 .contact-form {
   width: 100%;
 
   padding-top: 55px;
 
   border-top: 1px solid var(--contact-border);
+}
+
+
+/* =================================
+   OTHER WAYS TO CONTACT
+================================= */
+
+.contact-aside {
+  padding-top: 55px;
+
+  border-top: 1px solid var(--contact-border);
+}
+
+.contact-aside .contact-eyebrow {
+  margin-bottom: 18px;
+}
+
+.contact-aside__text {
+  margin: 0 0 35px;
+
+  color: #68665f;
+
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  margin-bottom: 16px;
+  padding: 20px 22px;
+
+  color: var(--contact-dark);
+  background: transparent;
+
+  border: 1px solid var(--contact-border);
+  border-radius: 0;
+
+  font-family: inherit;
+  text-align: left;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.contact-method:hover,
+.contact-method:focus-visible {
+  border-color: var(--contact-gold);
+
+  background: rgba(176, 138, 74, 0.05);
+
+  outline: none;
+}
+
+.contact-method__icon {
+  flex-shrink: 0;
+
+  width: 52px;
+  height: 52px;
+
+  object-fit: contain;
+}
+
+.contact-method__text {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+}
+
+.contact-method__text small {
+  margin-bottom: 6px;
+
+  color: var(--contact-gold);
+
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.contact-method__text strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.contact-method__arrow {
+  color: var(--contact-gold);
+
+  font-size: 1.1rem;
+
+  transition: transform 0.3s ease;
+}
+
+.contact-method:hover .contact-method__arrow {
+  transform: translateX(5px);
+}
+
+
+/* =================================
+   WECHAT QR POP-UP
+================================= */
+
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(32, 32, 29, 0.78);
+
+  animation: contactFade 0.25s ease;
+}
+
+.contact-modal__box {
+  position: relative;
+
+  width: min(380px, 100%);
+  box-sizing: border-box;
+
+  padding: 50px 40px 40px;
+
+  text-align: center;
+
+  background: var(--contact-light);
+
+  animation: contactPop 0.3s ease;
+}
+
+.contact-modal__box h3 {
+  margin: 8px 0 28px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+
+  word-break: break-all;
+}
+
+.contact-modal__qr {
+  display: block;
+
+  width: 100%;
+  max-width: 240px;
+
+  margin: 0 auto 24px;
+
+  border: 1px solid var(--contact-border);
+}
+
+.contact-modal__box p {
+  margin: 0;
+
+  color: #68665f;
+
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.contact-modal__close {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+
+  padding: 4px 8px;
+
+  color: var(--contact-dark);
+  background: transparent;
+
+  border: none;
+
+  font-size: 2rem;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: color 0.25s ease;
+}
+
+.contact-modal__close:hover {
+  color: var(--contact-gold);
+}
+
+@keyframes contactFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes contactPop {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -480,6 +706,14 @@
     grid-template-columns: 1fr;
 
     gap: 35px;
+  }
+
+  /* Contact methods drop below the form */
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+
+    gap: 70px;
   }
 
 

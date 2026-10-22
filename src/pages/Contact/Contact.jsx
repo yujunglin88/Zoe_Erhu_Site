@@ -1,17 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Contact.css";
 
 import studioLogo from "../../assests/images/logo.png";
+import rednoteLogo from "../../assests/icons/rednote.png";
+import wechatLogo from "../../assests/icons/wechat.png";
+import wechatQr from "../../assests/icons/wechat-qr.png";
 
 // ========================================
-// CHANGE YOUR EMAIL ADDRESS HERE
+// CHANGE YOUR CONTACT DETAILS HERE
 // ========================================
 
 const CONTACT_EMAIL = "hello@zoelierhustudio.com";
 
+// Link to Zoe's RedNote (Xiaohongshu) profile.
+// On a phone with the app installed this opens in the RedNote app.
+const REDNOTE_URL =
+  "https://xhslink.cn/m/1FkjZydmauo";
+
+// Shown at the top of the WeChat pop-up
+const WECHAT_ID = "licaiyi1234567";
+
 
 function Contact() {
   const [reason, setReason] = useState("");
+  const [showWechat, setShowWechat] = useState(false);
+
+  // Close the WeChat pop-up with the Escape key,
+  // and stop the page scrolling behind it while it is open
+  useEffect(() => {
+    if (!showWechat) return undefined;
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") setShowWechat(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [showWechat]);
 
   const showLessonFields =
     reason === "private lesson" ||
@@ -134,6 +164,8 @@ function Contact() {
           {/* =================================
               FORM
           ================================= */}
+
+          <div className="contact-layout">
 
           <form
             className="contact-form"
@@ -353,6 +385,71 @@ function Contact() {
 
           </form>
 
+
+          {/* =================================
+              OTHER WAYS TO CONTACT
+          ================================= */}
+
+          <aside className="contact-aside">
+
+            <span className="contact-eyebrow contact-eyebrow--dark">
+              OTHER WAYS TO REACH ZOE
+            </span>
+
+            <p className="contact-aside__text">
+              Prefer to chat on your favourite app? Message Zoe
+              on RedNote or WeChat.
+            </p>
+
+            {/* RedNote - opens Zoe's profile / the RedNote app */}
+
+            <a
+              href={REDNOTE_URL}
+              className="contact-method"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={rednoteLogo}
+                alt=""
+                className="contact-method__icon"
+              />
+
+              <span className="contact-method__text">
+                <small>REDNOTE · 小红书</small>
+                <strong>Follow Zoe</strong>
+              </span>
+
+              <span className="contact-method__arrow">↗</span>
+            </a>
+
+
+            {/* WeChat - opens the QR code pop-up */}
+
+            <button
+              type="button"
+              className="contact-method"
+              onClick={() => setShowWechat(true)}
+              aria-haspopup="dialog"
+            >
+              <img
+                src={wechatLogo}
+                alt=""
+                className="contact-method__icon"
+              />
+
+              <span className="contact-method__text">
+                <small>WECHAT · 微信</small>
+                <strong>Scan QR code</strong>
+              </span>
+
+              <span className="contact-method__arrow">→</span>
+            </button>
+
+          </aside>
+
+          </div>
+
         </div>
 
       </section>
@@ -385,6 +482,56 @@ function Contact() {
         </p>
 
       </section>
+
+
+
+      {/* =================================
+          WECHAT QR CODE POP-UP
+      ================================= */}
+
+      {showWechat && (
+
+        <div
+          className="contact-modal"
+          onClick={() => setShowWechat(false)}
+        >
+
+          <div
+            className="contact-modal__box"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="wechat-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+
+            <button
+              type="button"
+              className="contact-modal__close"
+              aria-label="Close"
+              onClick={() => setShowWechat(false)}
+            >
+              ×
+            </button>
+
+            <span className="contact-eyebrow contact-eyebrow--dark">
+              WECHAT · 微信
+            </span>
+
+            <h3 id="wechat-title">{WECHAT_ID}</h3>
+
+            <img
+              src={wechatQr}
+              alt={`WeChat QR code for ${WECHAT_ID}`}
+              className="contact-modal__qr"
+            />
+
+            <p>Scan the QR code with WeChat to add Zoe.</p>
+
+          </div>
+
+        </div>
+
+      )}
 
     </main>
   );

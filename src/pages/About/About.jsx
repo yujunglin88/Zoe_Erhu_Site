@@ -2,7 +2,6 @@ import React from "react";
 import "./About.css";
 
 import zoeProfile from "../../assests/images/portrait.jpg";
-import zoeHero from "../../assests/images/logo.png";
 
 const achievements = [
   {
