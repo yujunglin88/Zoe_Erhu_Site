@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from "react";
 import "./Contact.css";
 
-import studioLogo from "../../assests/images/logo.png";
-import rednoteLogo from "../../assests/icons/rednote.png";
-import wechatLogo from "../../assests/icons/wechat.png";
-import wechatQr from "../../assests/icons/wechat-qr.png";
+import studioLogo from "../../assets/images/logo.png";
+import rednoteLogo from "../../assets/icons/rednote.png";
+import wechatLogo from "../../assets/icons/wechat.png";
+import wechatQr from "../../assets/icons/wechat-qr.png";
 
 // ========================================
 // CHANGE YOUR CONTACT DETAILS HERE
 // ========================================
 
-const CONTACT_EMAIL = "hello@zoelierhustudio.com";
+// Only shown to visitors if sending fails.
+// (The email that actually receives enquiries is set on the server.)
+const CONTACT_EMAIL = "yujunglin88@gmail.com";
+
+// Where the form is sent. In development the Vite proxy forwards
+// /api to your Express server. In production, if the site and the
+// server live at different addresses, set VITE_API_URL in the
+// client's .env file (e.g. https://api.yoursite.com).
+const CONTACT_API_URL =
+  `${import.meta.env.VITE_API_URL || ""}/api/contact`;
 
 // Link to Zoe's RedNote (Xiaohongshu) profile.
 // On a phone with the app installed this opens in the RedNote app.
@@ -24,6 +33,9 @@ const WECHAT_ID = "licaiyi1234567";
 function Contact() {
   const [reason, setReason] = useState("");
   const [showWechat, setShowWechat] = useState(false);
+
+  // "idle" | "sending" | "success" | "error"
+  const [status, setStatus] = useState("idle");
 
   // Close the WeChat pop-up with the Escape key,
   // and stop the page scrolling behind it while it is open
@@ -52,38 +64,47 @@ function Contact() {
   // FORM SUBMISSION
   // ========================================
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
+    if (status === "sending") return;
 
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const phone = formData.get("phone");
-    const age = formData.get("age");
-    const level = formData.get("level");
-    const moreInfo = formData.get("moreInfo");
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
-    const subject = `Website Enquiry - ${reason}`;
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      reason,
+      age: showLessonFields ? formData.get("age") : "",
+      level: showLessonFields ? formData.get("level") : "",
+      moreInfo: formData.get("moreInfo"),
 
-    let body = `Name: ${name}\n`;
-    body += `Email: ${email}\n`;
-    body += `Phone: ${phone || "Not provided"}\n`;
-    body += `Reason for enquiry: ${reason}\n`;
+      // Hidden spam trap: real visitors never fill this in
+      website: formData.get("website"),
+    };
 
-    if (showLessonFields) {
-      body += `Age: ${age}\n`;
-      body += `Level: ${level}\n`;
+    setStatus("sending");
+
+    try {
+      const response = await fetch(CONTACT_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed (${response.status})`);
+      }
+
+      form.reset();
+      setReason("");
+      setStatus("success");
+    } catch (error) {
+      console.error("Contact form error:", error);
+      setStatus("error");
     }
-
-    body += `\nMore information:\n${moreInfo}`;
-
-    const mailtoLink =
-      `mailto:${CONTACT_EMAIL}` +
-      `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailtoLink;
   };
 
 
@@ -367,18 +388,45 @@ function Contact() {
             </div>
 
 
+            {/* Spam trap - hidden from real visitors */}
+
+            <div className="contact-form__hp" aria-hidden="true">
+              <label htmlFor="website">Leave this field empty</label>
+              <input
+                id="website"
+                name="website"
+                type="text"
+                tabIndex="-1"
+                autoComplete="off"
+              />
+            </div>
+
+
             {/* Submit */}
 
             <div className="contact-form__submit">
 
-              <button type="submit">
-                Send Enquiry
+              <button
+                type="submit"
+                disabled={status === "sending"}
+              >
+                {status === "sending" ? "Sending..." : "Send Enquiry"}
                 <span>→</span>
               </button>
 
-              <p>
-                Your email app will open with your enquiry
-                ready to send.
+              <p
+                className={`contact-form__status contact-form__status--${status}`}
+                role="status"
+                aria-live="polite"
+              >
+                {status === "success" &&
+                  "Thank you! Your enquiry has been sent and Zoe will be in touch soon."}
+
+                {status === "error" &&
+                  `Sorry, something went wrong. Please try again, or email ${CONTACT_EMAIL} directly.`}
+
+                {(status === "idle" || status === "sending") &&
+                  "Zoe will reply to the email address you provide."}
               </p>
 
             </div>

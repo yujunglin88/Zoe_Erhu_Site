@@ -1,15 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './componenets/Navbar';
+import Navbar from './components/Navbar';
 import Home from './pages/Home/Home';
 import Class from './pages/Class/Class';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
-import ScrollToTop from './componenets/ScrollToTop';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
         <ScrollToTop />
         <Navbar />
         <Routes>

@@ -1,8 +1,8 @@
 import React from "react";
 import "./Home.css";
 
-import zoeHero from "../../assests/images/logo.png";
-import zoeProfile from "../../assests/images/portrait.jpg";
+import zoeHero from "../../assets/images/logo.png";
+import zoeProfile from "../../assets/images/portrait.jpg";
 
 function Home() {
   return (
