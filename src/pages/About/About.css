@@ -296,6 +296,7 @@
 
 .about-timeline__item {
   position: relative;
+  box-sizing: border-box; /* keeps padding inside the 50% width so the dot sits on the centre line */
 
   width: 50%;
 
@@ -317,13 +318,15 @@
 
   font-size: 0.8rem;
   font-weight: 700;
+  line-height: 1;
   letter-spacing: 0.15em;
 }
 
 .about-timeline__dot {
   position: absolute;
 
-  top: 25px;
+  /* item padding (20px) + half the year text height (0.4rem) = middle of the year label */
+  top: calc(20px + 0.4rem);
 
   width: 13px;
   height: 13px;
@@ -335,14 +338,22 @@
   box-shadow: 0 0 0 4px var(--about-light);
 }
 
+/* Left-hand items: centre the dot exactly on the item's right edge (the centre line) */
 .about-timeline__item:nth-child(odd)
   .about-timeline__dot {
-  right: -7px;
+  right: 0;
+  left: auto;
+
+  transform: translate(50%, -50%);
 }
 
+/* Right-hand items: centre the dot exactly on the item's left edge (the centre line) */
 .about-timeline__item:nth-child(even)
   .about-timeline__dot {
-  left: -6px;
+  left: 0;
+  right: auto;
+
+  transform: translate(-50%, -50%);
 }
 
 .about-timeline__card {
@@ -579,8 +590,10 @@
     .about-timeline__dot,
   .about-timeline__item:nth-child(even)
     .about-timeline__dot {
-    left: 14px;
+    left: 20px; /* same as .about-timeline::before */
     right: auto;
+
+    transform: translate(-50%, -50%);
   }
 
   .about-music__card {
@@ -641,6 +654,6 @@
     .about-timeline__dot,
   .about-timeline__item:nth-child(even)
     .about-timeline__dot {
-    left: 9px;
+    left: 15px; /* same as .about-timeline::before */
   }
 }

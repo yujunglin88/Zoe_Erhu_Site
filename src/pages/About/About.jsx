@@ -186,7 +186,7 @@ function About() {
             {achievements.map((achievement) => (
               <article
                 className="about-timeline__item"
-                key={achievement.year}
+                key={`${achievement.year}-${achievement.title}`}
               >
                 <div className="about-timeline__year">
                   {achievement.year}
