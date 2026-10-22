@@ -6,7 +6,7 @@ import './Navbar.css';
 const NAV_LINKS = [
   { to: '/', label: 'Home', end: true },
   { to: '/class', label: 'Classes / Grade Exams' },
-  { to: '/about', label: 'About' },
+  { to: '/about', label: 'About Zoe' },
 ];
 
 const Navbar = () => {
