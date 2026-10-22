@@ -3,7 +3,7 @@ import "./Class.css";
 
 const classes = [
   {
-    number: "01",
+    // number: "01",
     title: "Private Lesson",
     description:
       "Personalised one-on-one tuition designed to help each student develop at their own pace.",
@@ -13,19 +13,19 @@ const classes = [
       "Teaches from beginner to advanced, all levels and ages welcomed",
     ],
   },
+  // {
+  //   number: "02",
+  //   title: "Group Lesson",
+  //   description:
+  //     "Learn and enjoy music together in a supportive group environment.",
+  //   details: [
+  //     "Small group sessions",
+  //     "Suitable for different levels",
+  //     "Contact Zoe for available group lessons",
+  //   ],
+  // },
   {
-    number: "02",
-    title: "Group Lesson",
-    description:
-      "Learn and enjoy music together in a supportive group environment.",
-    details: [
-      "Small group sessions",
-      "Suitable for different levels",
-      "Contact Zoe for available group lessons",
-    ],
-  },
-  {
-    number: "03",
+    // number: "03",
     title: "Grade Exams",
     description:
       "Structured preparation for recognised Chinese traditional music grade examinations.",
@@ -74,10 +74,10 @@ const Class = () => {
         <div className="class-grid">
           {classes.map((item) => (
             <article className="class-card" key={item.number}>
-              <div className="class-card__top">
+              {/* <div className="class-card__top">
                 <span className="class-card__number">{item.number}</span>
                 <span className="class-card__line" />
-              </div>
+              </div> */}
 
               <h3>{item.title}</h3>
 

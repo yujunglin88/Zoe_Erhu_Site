@@ -126,7 +126,7 @@
 }
 
 .class-card {
-  min-height: 460px;
+  min-height: 260px;
   padding: 38px;
   display: flex;
   flex-direction: column;
