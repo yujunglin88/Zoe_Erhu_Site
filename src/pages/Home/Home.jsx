@@ -33,13 +33,14 @@ function Home() {
           </p>
 
           <div className="home-hero__buttons">
-            <a href="/class" className="home-button home-button--light">
+            <a href="#section_classes" className="home-button home-button--light">
               Explore Classes
-              <span>→</span>
+              <span>↓</span>
             </a>
 
-            <a href="/about" className="home-button home-button--outline">
+            <a href="#section_zoe_intro" className="home-button home-button--outline">
               Meet Zoe
+              <span>↓</span>
             </a>
           </div>
         </div>
@@ -52,7 +53,7 @@ function Home() {
 
 
       {/* Introduction */}
-      <section className="home-intro">
+      <section className="home-intro" id="section_zoe_intro">
         <div className="home-container">
 
           <div className="home-intro__heading">
@@ -80,9 +81,9 @@ function Home() {
               experience with students of all ages and abilities.
             </p>
 
-            <a href="/about" className="home-text-link">
+            <a href="#section_zoe" className="home-text-link">
               Discover Zoe's story
-              <span>→</span>
+              <span>↓</span>
             </a>
           </div>
 
@@ -119,7 +120,7 @@ function Home() {
 
 
       {/* Classes */}
-      <section className="home-classes">
+      <section className="home-classes" id="section_classes">
         <div className="home-container">
 
           <div className="home-section-heading">
@@ -145,7 +146,7 @@ function Home() {
           <div className="home-class-grid">
 
             <article>
-              <span>01</span>
+              {/* <span>01</span> */}
               <h3>Private Lessons</h3>
               <p>
                 One-on-one lessons for beginners through to advanced
@@ -154,7 +155,7 @@ function Home() {
               <strong>$45 / 30 mins</strong>
             </article>
 
-            <article>
+            {/* <article>
               <span>02</span>
               <h3>Group Lessons</h3>
               <p>
@@ -162,10 +163,10 @@ function Home() {
                 group environment.
               </p>
               <strong>Contact Zoe</strong>
-            </article>
+            </article> */}
 
             <article>
-              <span>03</span>
+              {/* <span>02</span> */}
               <h3>Grade Exams</h3>
               <p>
                 Grade 1–10 preparation with examinations hosted
@@ -174,13 +175,16 @@ function Home() {
               <strong>100% Pass Rate*</strong>
             </article>
 
-          </div>
+            <article>
+              <div className="home-classes__action">
+                <h3>Find out more</h3>
+                <a href="/class" className="home-dark-button">
+                  About Classes
+                  <span>→</span>
+                </a>
+              </div>
+            </article>
 
-          <div className="home-classes__action">
-            <a href="/class" className="home-dark-button">
-              View All Classes
-              <span>→</span>
-            </a>
           </div>
 
         </div>
@@ -188,7 +192,7 @@ function Home() {
 
 
       {/* Zoe Feature */}
-      <section className="home-zoe">
+      <section className="home-zoe" id="section_zoe">
         <div className="home-zoe__image">
           <img
             src={zoeProfile}

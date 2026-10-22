@@ -1,3 +1,12 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.home-classes,
+.home-zoe {
+  scroll-margin-top: 76px; /* height of the sticky navbar */
+}
+
 .home-page {
   --home-cream: #f5f0e8;
   --home-light: #faf8f3;

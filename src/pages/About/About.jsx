@@ -289,7 +289,7 @@ function About() {
               encouraging and inspiring.
             </p>
 
-            <a href="/classes" className="about-button">
+            <a href="/class" className="about-button">
               Explore Classes
             </a>
 
